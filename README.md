@@ -36,8 +36,8 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 ============================================================================================
 
-初始文件解析
-
+### 初始文件解析
+```
 ├── README.md                       // 项目说明文档
 ├── node_modules                    // 项目依赖包文件夹
 ├── build                           // 编译配置文件，一般不用管
@@ -67,13 +67,13 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 │   └── router                      // 路由配置文件夹
 │       └── index.js            // 路由配置文件
 └── static                          // 资源放置目录
-
+```
 
 =============================================================================
 
 
 
-
+```
 src
 ├── App.vue                         // APP入口文件
 ├── api                             // 接口调用工具文件夹
@@ -107,19 +107,21 @@ static
 ├── font                // 放字体图标文件
 ├── image           // 放图片文件，如果是复杂项目，可以在这里面再分门别类
 └── js              // 放一些第三方的JS文件，如 jquery
-
+```
 
 
 ==========================================================================
-因为使用了 scss 文件预编译，所以我们需要安装两个支持 scss 的 npm 包:
+#### 因为使用了 scss 文件预编译，所以我们需要安装两个支持 scss 的 npm 包:
+```
 npm install sass-loader -D
 npm install node-sass -D
-
+```
 
 ==========================================================================
-安装 axios 工具:【ajax请求】
+#### 安装 axios 工具:【ajax请求】
+```
 npm install axios -D
-
+```
 
 =========================================================================
 -S 是 --save的简写  安装的包的名称及版本号存在package.json的dependencies里面
@@ -127,8 +129,9 @@ npm install axios -D
 
 
 ==========================================================================
-配置 webpack 将接口代理到本地
+### 配置 webpack 将接口代理到本地
 config/index.js 文件，找到以下代码：
+```
 dev: {
    env: require('./dev.env'),
    port: 8080,
@@ -138,7 +141,9 @@ dev: {
    proxyTable: {}, //配置代理
    cssSourceMap: false
  }
-1.代理配置：
+ ```
+#### 1.代理配置：
+```
 proxyTable: {
   '/api/v1/**': {
     target: 'https://cnodejs.org', // 你接口的域名
@@ -146,45 +151,61 @@ proxyTable: {
     changeOrigin: false,
   }
 }
-2.src/api/index.js 文件
+```
+#### 2.src/api/index.js 文件
 // 配置API接口地址
+```
 var root = '/api/v1'
-
+```
 注意：需要重启项目生效！！！
 ==========================================================================
-打包项目
-1.去掉 map 文件
+### 打包项目
+#### 1.去掉 map 文件
 在 /config/index.js 文件，找到其中的
+```
 productionSourceMap: true,
+```
 修改为：
+```
 productionSourceMap: false,
-
-2.运行打包命令：
+```
+#### 2.运行打包命令：
+```
 npm run build
-
+```
 注意：文件打包位置于项目目录里面的 dist 文件夹内。
 实际开发中，只需要把 dist 文件夹中打包好的文件
 ==================
-将项目打包到子目录
+#### 将项目打包到子目录
 编辑 config/index.js 文件，找到：
-
+```
 assetsPublicPath: '/',
+```
 把 '/' 修改为要放的子目录的路径。这里，我要放到 /dist/ 目录下面。于是，我就把这里修改为
-
+```
 assetsPublicPath: '/dist/',
+```
 注意：修改的是访问地址，默认/,修改后为：域名/dist/。访问的是打包后的文件。
 =============================================================================
-运行
-1. nodejs 环境，只要全局安装一个 http-server 服务
+### 运行
+####1. nodejs 环境，只要全局安装一个 http-server 服务
+```
 npm install http-server -g
-2.终端里面输入，
+```
+#### 2.终端里面输入，
+```
 http-server
-爆 -bash: http-server: command not found 错误
-3.配置环境变量【不报错可不配置】
+报 -bash: http-server: command not found 错误
+```
+#### 3.配置环境变量【不报错可不配置】
+```
 echo 'export PATH="$PATH:/usr/local/Cellar/node/7.6.0/bin/"' >> ~/.bash_profile
 . ~/.bash_profile
+```
 第一条命令是追加环境变量，第二个命令是，使追加立即生效。
 
 3.运行
+```
 cd dist
-http-server -p 3000
+http-server -p 3000```
+```
