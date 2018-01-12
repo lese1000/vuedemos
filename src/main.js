@@ -22,3 +22,52 @@ new Vue({
   template: '<App/>',
   components: { App }
 })
+
+
+/*
+
+new Vue({
+
+  router,
+  store,
+  //components: { App }  vue1.0的写法
+  render: h => h(App)    vue2.0的写法
+}).$mount('#app')
+
+
+
+{
+    render: h => h(App);
+}
+等价于
+
+{
+    render: h => {
+        return h(App);
+    }
+}
+等价于
+
+{
+    render: function(h) {
+        return h(App);
+    }
+}
+即：
+
+{
+    render: function(createElement) {
+        return createElement(App);
+    }
+}
+
+[官方文档][1]：
+
+ render: function (createElement) {
+    return createElement(
+      'h' + this.level,   // tag name 标签名称
+       this.$slots.default // 子组件中的阵列
+     )
+   }
+
+*/
