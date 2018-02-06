@@ -176,6 +176,22 @@ npm run build
 ```
 注意：文件打包位置于项目目录里面的 dist 文件夹内。
 实际开发中，只需要把 dist 文件夹中打包好的文件
+
+```
+dist
+├── index.html
+└── static
+    ├── css
+    │   └── app.a7a745952a8ca7f8c9413d53b431b8c8.css
+    ├── image
+    │   └── lyf.jpg
+    ├── img
+    │   └── lyf.9125a01.jpg
+    └── js
+        ├── app.39ccc604caeb34166b49.js
+        ├── manifest.b1ad113c36e077a9b54d.js
+        └── vendor.0b8d67613e49db91b787.js
+```
 ==================
 #### 将项目打包到子目录
 编辑 config/index.js 文件，找到：
