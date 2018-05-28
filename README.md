@@ -1,6 +1,16 @@
+
 # vuedemo
 
 > A Vue.js project
+
+## create project
+```bash
+$ npm install -g vue-cli
+$ vue init webpack my-project
+$ cd my-project
+$ npm install
+$ npm run dev
+```
 
 ## Build Setup
 
